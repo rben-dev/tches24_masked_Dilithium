@@ -99,7 +99,7 @@ void reject_sampling(uint32_t* x, uint32_t* z, int mode, int q, int n){
 
   LMSwitch(x, u, q, RHO, n);
   for(int i=1; i < n; ++i) y[i] = u[i]; 
-  y[0] = (u[0] - a)%(q<<RHO);
+  y[0] = (u[0] + ((q<<RHO) - a))%(q<<RHO);
   generic_shift(y, t1, RHO, q, n);
   for(int i=0; i < n; ++i) y_p[i] = ((q<<RHO) - u[i]);
   y_p[0] = (y_p[0] + (q<<RHO) - a)%(q<<RHO);
