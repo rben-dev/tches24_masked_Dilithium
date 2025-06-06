@@ -67,8 +67,8 @@
 
 void ZeroEncoding(uint32_t *x, int q, int n);
 void RefreshQuasiLin(uint32_t *x, int q, int n);
-void ZeroEncoding64(uint64_t *x, int q, int n);
-void RefreshQuasiLin64(uint64_t *x, int q, int n);
+void ZeroEncoding64(uint64_t *x, uint64_t q, int n);
+void RefreshQuasiLin64(uint64_t *x, uint64_t q, int n);
 
 void securediv(uint32_t* x, uint32_t* y, int log_alpha, int inv_alpha, int q, int n);
 

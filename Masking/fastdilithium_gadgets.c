@@ -54,7 +54,7 @@ void RefreshQuasiLin(uint32_t *x, int q, int n)
     }
 }
 
-void ZeroEncoding64(uint64_t *x, int q, int n)
+void ZeroEncoding64(uint64_t *x, uint64_t q, int n)
 {
     if(n == 1){
         x[0] = 0;
@@ -75,7 +75,7 @@ void ZeroEncoding64(uint64_t *x, int q, int n)
     }
 }
 
-void RefreshQuasiLin64(uint64_t *x, int q, int n)
+void RefreshQuasiLin64(uint64_t *x, uint64_t q, int n)
 {
     uint64_t y[n];
     ZeroEncoding64(y, q, n);
@@ -149,7 +149,7 @@ void LMSwitch(uint32_t* x, uint32_t* y, int q, int rho, int n){
   //refreshArithModp(delta, 1<<rho, n);
   RefreshQuasiLin(delta, 1<<rho, n);
 
-  for(int i=0; i < n; ++i) y[i] = ((uint64_t)x[i] + (uint64_t)((q<<rho) - q*delta[i]))%(uint64_t)(q<<rho);
+  for(int i=0; i < n; ++i) y[i] = ((uint64_t)x[i] + (uint64_t)(((uint64_t)q<<rho) - q*delta[i]))%(uint64_t)((uint64_t)q<<rho);
 
   
 }
